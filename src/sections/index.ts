@@ -1,0 +1,9 @@
+export { About } from "@/sections/About";
+export { FinalCta } from "@/sections/FinalCta";
+export { Hero } from "@/sections/Hero";
+export { Problem } from "@/sections/Problem";
+export { Process } from "@/sections/Process";
+export { Purpose } from "@/sections/Purpose";
+export { Services } from "@/sections/Services";
+export { SiteFooter } from "@/sections/SiteFooter";
+export { SiteHeader } from "@/sections/SiteHeader";

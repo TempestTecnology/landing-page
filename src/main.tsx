@@ -1,0 +1,14 @@
+import "tempest-react-sdk/styles/core.css";
+import "@/styles/brand.css";
+import "@/styles/landing.css";
+
+import { StrictMode } from "react";
+import { createRoot } from "react-dom/client";
+
+import { App } from "@/App";
+
+createRoot(document.getElementById("root")!).render(
+  <StrictMode>
+    <App />
+  </StrictMode>,
+);
