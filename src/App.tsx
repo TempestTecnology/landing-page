@@ -1,6 +1,7 @@
 import type { JSX } from "react";
 import { AppProviders } from "tempest-react-sdk";
 
+import { BRAND_NAME } from "@/core";
 import {
   About,
   FinalCta,
@@ -36,7 +37,12 @@ export function App(): JSX.Element {
         <Hero />
         <Problem />
         <Services />
-        <Projects />
+        <Projects
+          eyebrow="Portfólio"
+          title="Projetos que já entregamos"
+          pdfFileName={`Portfolio-${BRAND_NAME}`}
+          exportLabel="Exportar portfólio em PDF"
+        />
         <Purpose />
         <Process />
         <About />

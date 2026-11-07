@@ -1,41 +1,10 @@
 import { ArrowUpRight, ExternalLink, FileDown } from "lucide-react";
-import type { JSX } from "react";
+import type { JSX, ReactNode } from "react";
 import { Badge, Button, Card, Container, Grid } from "tempest-react-sdk";
 
 import { Reveal, SectionHeading } from "@/components";
-import {
-  BRAND_NAME,
-  FEATURED_PROJECTS,
-  GITHUB_PROFILE_URL,
-  OTHER_PROJECTS,
-  type ProjectItem,
-} from "@/core";
-
-/**
- * Nome sugerido para o arquivo PDF, via `document.title` durante a impressão.
- */
-const PDF_TITLE: string = `Portfolio-${BRAND_NAME}`;
-
-/**
- * Abre o diálogo de impressão com o portfólio pronto para "Salvar como PDF".
- *
- * O layout do PDF é o `PortfolioPrint`, que só aparece sob `@media print`
- * (`portfolio.css`). O navegador usa o `document.title` como nome padrão do
- * arquivo, então o título é trocado durante a impressão e restaurado no
- * `afterprint`.
- */
-function exportPortfolio(): void {
-  const previousTitle: string = document.title;
-  document.title = PDF_TITLE;
-  window.addEventListener(
-    "afterprint",
-    () => {
-      document.title = previousTitle;
-    },
-    { once: true },
-  );
-  window.print();
-}
+import { FEATURED_PROJECTS, GITHUB_PROFILE_URL, OTHER_PROJECTS, type ProjectItem } from "@/core";
+import { printAsPdf } from "@/utils";
 
 /**
  * Props do {@link ProjectCard}.
@@ -97,30 +66,60 @@ function ProjectCard({ project, compact = false }: ProjectCardProps): JSX.Elemen
 }
 
 /**
+ * Props do {@link Projects}.
+ *
+ * Attributes:
+ *     eyebrow (string): Rótulo acima do título.
+ *     title (ReactNode): Título da seção.
+ *     pdfFileName (string): Nome sugerido para o PDF exportado.
+ *     exportLabel (string): Texto do botão de exportação.
+ *     tint (boolean): Fundo azul-claro, para alternar com a seção vizinha.
+ */
+interface ProjectsProps {
+  eyebrow: string;
+  title: ReactNode;
+  pdfFileName: string;
+  exportLabel: string;
+  tint?: boolean;
+}
+
+/**
  * Seção "Projetos": destaques, outros projetos, link do GitHub e exportação
  * do portfólio em PDF.
+ *
+ * Serve à landing da empresa e ao portfólio do fundador; cada página tem o
+ * próprio documento de impressão, então o botão só abre o diálogo.
+ *
+ * Args:
+ *     props (ProjectsProps): Textos da seção e nome do PDF.
  *
  * Returns:
  *     A seção de projetos.
  */
-export function Projects(): JSX.Element {
+export function Projects({
+  eyebrow,
+  title,
+  pdfFileName,
+  exportLabel,
+  tint = false,
+}: ProjectsProps): JSX.Element {
   return (
-    <section id="projetos" className="section" aria-labelledby="projetos-title">
+    <section
+      id="projetos"
+      className={["section", tint && "section--tint"].filter(Boolean).join(" ")}
+      aria-labelledby="projetos-title"
+    >
       <Container size="xl">
         <div className="projects__top">
-          <SectionHeading
-            id="projetos-title"
-            eyebrow="Portfólio"
-            title="Projetos que já entregamos"
-          />
+          <SectionHeading id="projetos-title" eyebrow={eyebrow} title={title} />
           <Reveal delay={100} className="projects__actions">
             <Button
               variant="primary"
               pill
               leftIcon={<FileDown size={18} aria-hidden />}
-              onClick={exportPortfolio}
+              onClick={() => printAsPdf(pdfFileName)}
             >
-              Exportar portfólio em PDF
+              {exportLabel}
             </Button>
           </Reveal>
         </div>

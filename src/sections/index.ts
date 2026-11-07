@@ -1,7 +1,7 @@
 export { About } from "@/sections/About";
 export { FinalCta } from "@/sections/FinalCta";
 export { Hero } from "@/sections/Hero";
-export { PortfolioPrint } from "@/sections/PortfolioPrint";
+export { PortfolioPrint, PrintProject } from "@/sections/PortfolioPrint";
 export { Problem } from "@/sections/Problem";
 export { Process } from "@/sections/Process";
 export { Projects } from "@/sections/Projects";

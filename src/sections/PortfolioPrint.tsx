@@ -30,7 +30,7 @@ interface PrintProjectProps {
  * Returns:
  *     O artigo do projeto.
  */
-function PrintProject({ project }: PrintProjectProps): JSX.Element {
+export function PrintProject({ project }: PrintProjectProps): JSX.Element {
   const { name, category, summary, stack, link } = project;
 
   return (

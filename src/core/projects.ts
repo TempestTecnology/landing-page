@@ -12,6 +12,7 @@ import {
   ScanSearch,
   School,
   Server,
+  Smartphone,
   Terminal,
 } from "lucide-react";
 
@@ -141,6 +142,16 @@ export const OTHER_PROJECTS: ProjectItem[] = [
       "Aplicações web em Python tipado, rodando no navegador (WASM), no servidor ou transpiladas para JavaScript.",
     stack: ["Python", "WASM", "PWA"],
     link: { href: "https://mauriciobenjamin700.github.io/tempestweb/", label: "Documentação" },
+  },
+  {
+    id: "tempestroid",
+    icon: Smartphone,
+    name: "Tempestroid",
+    category: "Framework",
+    summary:
+      "Ponte entre Python e Kotlin no Android: roda Python nativo dentro do app, com NumPy, ONNX Runtime e OpenCV.",
+    stack: ["Python", "Kotlin", "Android"],
+    link: { href: "https://github.com/mauriciobenjamin700/tempestroid", label: "Repositório" },
   },
   {
     id: "tempest-cli",

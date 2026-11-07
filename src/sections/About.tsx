@@ -1,8 +1,9 @@
+import { ArrowRight } from "lucide-react";
 import type { JSX } from "react";
 import { Card, Container, Grid, Timeline } from "tempest-react-sdk";
 
 import { Reveal, SectionHeading } from "@/components";
-import { BRAND_NAME, MILESTONES } from "@/core";
+import { BRAND_NAME, FOUNDER_NAME, FOUNDER_PATH, MILESTONES } from "@/core";
 
 /**
  * Seção "Tecnologia que cresce com você": história em texto e `Timeline`.
@@ -42,6 +43,10 @@ export function About(): JSX.Element {
                   e inovadoras.
                 </strong>
               </p>
+              <a href={FOUNDER_PATH} className="founder-cta">
+                Conheça o fundador, {FOUNDER_NAME}
+                <ArrowRight size={18} aria-hidden />
+              </a>
             </Reveal>
           </div>
           <Reveal delay={200}>
