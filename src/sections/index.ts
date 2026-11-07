@@ -1,8 +1,10 @@
 export { About } from "@/sections/About";
 export { FinalCta } from "@/sections/FinalCta";
 export { Hero } from "@/sections/Hero";
+export { PortfolioPrint } from "@/sections/PortfolioPrint";
 export { Problem } from "@/sections/Problem";
 export { Process } from "@/sections/Process";
+export { Projects } from "@/sections/Projects";
 export { Purpose } from "@/sections/Purpose";
 export { Services } from "@/sections/Services";
 export { SiteFooter } from "@/sections/SiteFooter";

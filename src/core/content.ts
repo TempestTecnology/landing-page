@@ -60,6 +60,7 @@ export interface NavItem {
 
 export const NAV_ITEMS: NavItem[] = [
   { href: "#solucoes", label: "Soluções" },
+  { href: "#projetos", label: "Projetos" },
   { href: "#proposito", label: "Propósito" },
   { href: "#como-funciona", label: "Como funciona" },
   { href: "#sobre", label: "Sobre" },

@@ -5,8 +5,10 @@ import {
   About,
   FinalCta,
   Hero,
+  PortfolioPrint,
   Problem,
   Process,
+  Projects,
   Purpose,
   Services,
   SiteFooter,
@@ -34,12 +36,14 @@ export function App(): JSX.Element {
         <Hero />
         <Problem />
         <Services />
+        <Projects />
         <Purpose />
         <Process />
         <About />
         <FinalCta />
       </main>
       <SiteFooter />
+      <PortfolioPrint />
     </AppProviders>
   );
 }

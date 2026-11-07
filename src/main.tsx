@@ -1,6 +1,7 @@
 import "tempest-react-sdk/styles/core.css";
 import "@/styles/brand.css";
 import "@/styles/landing.css";
+import "@/styles/portfolio.css";
 
 import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
